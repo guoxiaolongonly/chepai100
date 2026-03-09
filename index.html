@@ -6,115 +6,78 @@
   <title>车牌100｜选号攻略</title>
   <style>
     :root {
-      --bg: #f4f7fb;
-      --card: rgba(255,255,255,.95);
+      --bg: #f5f7fb;
+      --card: rgba(255,255,255,.92);
       --text: #18202a;
-      --sub: #607081;
-      --line: #e8edf3;
+      --sub: #5f6b7a;
+      --line: #e7ebf0;
       --primary: #0f62fe;
-      --primary-2: #4f8fff;
       --primary-soft: #eef4ff;
-      --warning: #fff8e8;
-      --warning-line: #ffd88f;
-      --danger: #fff2f0;
-      --danger-line: #ffb3a7;
-      --success: #f3fff6;
-      --success-line: #9ae6b4;
-      --shadow: 0 14px 34px rgba(18, 30, 52, .08);
-      --radius: 24px;
+      --warning: #fff7e8;
+      --warning-line: #ffd591;
+      --success: #f0fff4;
+      --success-line: #95de64;
+      --shadow: 0 12px 30px rgba(23,35,61,.08);
+      --radius: 22px;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
       color: var(--text);
       background:
         radial-gradient(circle at top right, rgba(15,98,254,.08), transparent 28%),
-        radial-gradient(circle at top left, rgba(35,196,137,.08), transparent 24%),
+        radial-gradient(circle at top left, rgba(32,201,151,.08), transparent 24%),
         var(--bg);
-      line-height: 1.68;
+      line-height: 1.62;
     }
 
     a { color: inherit; text-decoration: none; }
-    img { display: block; }
 
     .shell {
-      max-width: 920px;
+      max-width: 860px;
       margin: 0 auto;
-      padding: 18px 14px 56px;
+      padding: 18px 14px 48px;
     }
 
     .hero {
+      padding: 22px 18px 18px;
+      background: linear-gradient(135deg, #0f62fe, #3b82f6 55%, #6ea8ff);
+      color: #fff;
+      border-radius: 28px;
+      box-shadow: var(--shadow);
       position: relative;
       overflow: hidden;
-      padding: 22px 18px 20px;
-      background: linear-gradient(135deg, #0f62fe 0%, #2e7bff 45%, #6ca8ff 100%);
-      color: #fff;
-      border-radius: 30px;
-      box-shadow: var(--shadow);
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      right: -20px;
-      top: -24px;
-      width: 170px;
-      height: 170px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.10);
     }
 
     .hero::after {
       content: "";
       position: absolute;
-      left: -40px;
-      bottom: -46px;
-      width: 200px;
-      height: 200px;
+      right: -40px;
+      top: -40px;
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
-      background: rgba(255,255,255,.06);
-    }
-
-    .hero-top {
-      position: relative;
-      z-index: 1;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.14);
-      border: 1px solid rgba(255,255,255,.18);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: .2px;
+      background: rgba(255,255,255,.12);
     }
 
     .hero h1 {
-      position: relative;
-      z-index: 1;
-      margin: 12px 0 8px;
-      font-size: 30px;
-      line-height: 1.2;
-      font-weight: 800;
+      margin: 10px 0 6px;
+      font-size: 24px;
+      line-height: 1.25;
+      font-weight: 700;
     }
 
     .hero p {
-      position: relative;
-      z-index: 1;
       margin: 0;
-      font-size: 15px;
       color: rgba(255,255,255,.92);
-      max-width: 700px;
+      font-size: 15px;
+      max-width: 620px;
     }
 
     .hero-tags {
-      position: relative;
-      z-index: 1;
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
@@ -122,24 +85,45 @@
     }
 
     .tag {
-      padding: 8px 12px;
-      border-radius: 999px;
+      padding: 8px 11px;
       background: rgba(255,255,255,.14);
       border: 1px solid rgba(255,255,255,.18);
+      border-radius: 999px;
       font-size: 12px;
-      font-weight: 600;
     }
 
-    .hero-note {
+    .hero-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 18px;
+      flex-wrap: wrap;
       position: relative;
       z-index: 1;
-      margin-top: 16px;
-      padding: 12px 14px;
-      border-radius: 16px;
-      background: rgba(255,255,255,.12);
-      border: 1px solid rgba(255,255,255,.16);
-      color: rgba(255,255,255,.95);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      min-height: 44px;
+      padding: 0 16px;
+      border-radius: 14px;
       font-size: 14px;
+      font-weight: 700;
+      transition: transform .16s ease, box-shadow .16s ease;
+    }
+
+    .btn:active { transform: scale(.98); }
+    .btn-primary {
+      background: #fff;
+      color: #0f62fe;
+      box-shadow: 0 8px 20px rgba(0,0,0,.12);
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,.12);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,.24);
     }
 
     .nav-wrap {
@@ -147,40 +131,46 @@
       top: 0;
       z-index: 20;
       margin-top: 14px;
-      padding-top: 2px;
       backdrop-filter: blur(12px);
     }
 
     .nav {
       display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      overflow: hidden;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0;
+      padding: 0;
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(255,255,255,.75);
+      box-shadow: 0 8px 22px rgba(16,24,40,.06);
       border-radius: 18px;
-      background: rgba(255,255,255,.82);
-      border: 1px solid rgba(255,255,255,.95);
-      box-shadow: 0 10px 24px rgba(16,24,40,.06);
+      overflow: hidden;
     }
+    .nav::-webkit-scrollbar { display: none; }
 
     .nav a {
-      min-height: 52px;
       display: flex;
       align-items: center;
       justify-content: center;
+      min-height: 52px;
       padding: 0 8px;
-      font-size: 14px;
-      font-weight: 700;
+      font-size: 15px;
+      font-weight: 600;
       color: #304156;
-      border-right: 1px solid #edf2f7;
+      background: transparent;
+      border-radius: 0;
+      border-right: 1px solid #eef2f7;
       white-space: nowrap;
     }
 
-    .nav a:last-child { border-right: 0; }
+    .nav a:last-child {
+      border-right: 0;
+    }
 
     .section {
-      scroll-margin-top: 92px;
+      scroll-margin-top: 90px;
       margin-top: 18px;
       background: var(--card);
-      border: 1px solid rgba(255,255,255,.95);
+      border: 1px solid rgba(255,255,255,.9);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow: hidden;
@@ -196,14 +186,14 @@
 
     .section-title-wrap h2 {
       margin: 0;
-      font-size: 23px;
+      font-size: 22px;
       line-height: 1.22;
     }
 
     .section-title-wrap p {
       margin: 6px 0 0;
-      color: var(--sub);
       font-size: 14px;
+      color: var(--sub);
     }
 
     .badge {
@@ -213,7 +203,7 @@
       background: var(--primary-soft);
       color: var(--primary);
       font-size: 12px;
-      font-weight: 800;
+      font-weight: 700;
     }
 
     .section-body {
@@ -225,111 +215,19 @@
       gap: 12px;
     }
 
-    .grid.two { grid-template-columns: repeat(2, 1fr); }
+    .grid.two { grid-template-columns: 1fr 1fr; }
     .grid.three { grid-template-columns: repeat(3, 1fr); }
 
     .mini-card {
-      padding: 16px;
-      border-radius: 20px;
+      padding: 14px;
+      border-radius: 18px;
       background: #fff;
       border: 1px solid var(--line);
     }
 
     .mini-card h3 {
-      margin: 0 0 8px;
-      font-size: 17px;
-      line-height: 1.45;
-    }
-
-    .mini-card p,
-    .mini-card li,
-    .plain {
-      font-size: 14px;
-      color: #314152;
-    }
-
-    .mini-card p { margin: 0; }
-
-    .summary-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
-
-    .summary-card {
-      padding: 16px;
-      border-radius: 20px;
-      background: linear-gradient(180deg, #ffffff, #f8fbff);
-      border: 1px solid #e5eefb;
-    }
-
-    .summary-card strong {
-      display: block;
-      font-size: 18px;
-      margin-bottom: 6px;
-      color: var(--primary);
-    }
-
-    .flow-map {
-      display: grid;
-      gap: 12px;
-    }
-
-    .flow-root {
-      padding: 16px;
-      border-radius: 20px;
-      text-align: center;
-      color: #fff;
-      background: linear-gradient(135deg, #0f62fe, #4f8fff);
-      font-size: 20px;
-      font-weight: 800;
-    }
-
-    .flow-branches {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .branch-card {
-      padding: 16px;
-      border-radius: 20px;
-      background: #fff;
-      border: 1px solid var(--line);
-    }
-
-    .branch-badge {
-      display: inline-flex;
-      align-items: center;
-      min-height: 34px;
-      padding: 0 12px;
-      border-radius: 12px;
-      font-size: 14px;
-      font-weight: 800;
-      color: #fff;
-      margin-bottom: 12px;
-    }
-
-    .branch-badge.green {
-      background: linear-gradient(135deg, #79b600, #9acb12);
-    }
-
-    .branch-badge.orange {
-      background: linear-gradient(135deg, #f5a400, #f7c24b);
-    }
-
-    .branch-list {
-      display: grid;
-      gap: 10px;
-    }
-
-    .branch-item {
-      padding: 12px;
-      background: #f8fbff;
-      border: 1px solid #e7eef8;
-      border-radius: 14px;
-      font-size: 14px;
-      color: #314152;
+      margin: 0 0 6px;
+      font-size: 16px;
     }
 
     .strategy-stack {
@@ -341,61 +239,18 @@
       padding: 16px;
     }
 
-    .step-title {
+    .strategy-card h3 {
+      min-height: 24px;
       display: flex;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 10px;
     }
 
-    .step-num {
-      width: 30px;
-      height: 30px;
-      border-radius: 999px;
-      background: var(--primary-soft);
-      color: var(--primary);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      font-weight: 900;
-      flex: 0 0 auto;
-    }
-
-    .explain-text {
-      font-size: 14px !important;
-      color: #566577 !important;
-      line-height: 1.82;
-    }
-
-    .hint-box,
-    .warn-box,
-    .good-box,
-    .danger-box {
-      margin-top: 12px;
-      padding: 14px;
-      border-radius: 18px;
-      font-size: 14px;
-    }
-
-    .hint-box {
-      background: #f7faff;
-      border: 1px solid #dbeafe;
-    }
-
-    .warn-box {
-      background: var(--warning);
-      border: 1px solid var(--warning-line);
-    }
-
-    .good-box {
-      background: var(--success);
-      border: 1px solid var(--success-line);
-    }
-
-    .danger-box {
-      background: var(--danger);
-      border: 1px solid var(--danger-line);
+    .strategy-card .img-placeholder {
+      margin-top: 14px;
+      border-radius: 20px;
+      overflow: hidden;
+      background:#f6f9fe;
+      border:1px solid #e7eef8;
     }
 
     .shot-grid {
@@ -416,88 +271,325 @@
       padding: 10px;
     }
 
-    .caption {
+    .shot-card .caption {
       margin: 0 0 8px;
       font-size: 13px;
       color: #5f6b7a;
-      font-weight: 700;
-    }
-
-    .img-wrap {
-      border-radius: 16px;
-      overflow: hidden;
-      background: #eef4fb;
-      border: 1px solid #e2eaf5;
+      font-weight: 600;
     }
 
     .img-preview {
-      width: 100%;
-      max-height: 360px;
-      object-fit: cover;
-      cursor: zoom-in;
-      background: #fff;
+      width:100%;
+      max-height:320px;
+      object-fit:cover;
+      display:block;
+      cursor:zoom-in;
     }
 
-    .faq-item {
+    .lightbox {
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.75);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      z-index:999;
+    }
+
+    .lightbox-stage {
+      width:100%;
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .lightbox img{
+      max-width:100%;
+      max-height:90vh;
+      border-radius:14px;
+      box-shadow:0 20px 50px rgba(0,0,0,.35);
+      transform: scale(var(--zoom, 1));
+      transform-origin: center center;
+      transition: transform .18s ease;
+      cursor: zoom-in;
+    }
+
+    .lightbox img.zoomed {
+      cursor: move;
+    }
+
+    .mini-card p,
+    .mini-card li,
+    .plain,
+    .list li { font-size: 14px; color: #314152; }
+
+    .explain-text {
+      font-size: 13px !important;
+      color: #6f7c8c !important;
+      line-height: 1.7;
+    }
+
+    .mini-card p { margin: 0; }
+
+    .number-pill {
+      width: 28px;
+      height: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .img-placeholder {
+      margin-top: 14px;
+      min-height: 180px;
+      border: 1.5px dashed #c8d2df;
+      background: linear-gradient(180deg, #fbfcfe, #f4f7fb);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 18px;
+      color: #6b7787;
+      font-size: 14px;
+    }
+
+    .hint-box, .warn-box, .good-box {
+      padding: 14px 14px;
+      border-radius: 18px;
+      font-size: 14px;
+      margin-top: 12px;
+    }
+
+    .hint-box {
+      background: #f7faff;
+      border: 1px solid #dbeafe;
+    }
+
+    .warn-box {
+      background: var(--warning);
+      border: 1px solid var(--warning-line);
+    }
+
+    .good-box {
+      background: var(--success);
+      border: 1px solid var(--success-line);
+    }
+
+    .faq-link {
+      color: #0f62fe;
+      font-weight: 700;
+      border-bottom: 1px dashed rgba(15,98,254,.45);
+      cursor: pointer;
+    }
+
+    .faq-link:active { opacity: .72; }
+
+    .flow {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .branch-flow {
+      margin-top: 14px;
       padding: 14px;
+      background: linear-gradient(180deg, #fbfdff, #f6f9fe);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+    }
+
+    .branch-root {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .branch-root-card {
+      min-width: 132px;
+      padding: 14px 18px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #0f62fe, #4c8dff);
+      color: #fff;
+      text-align: center;
+      font-size: 22px;
+      font-weight: 800;
+      box-shadow: 0 12px 24px rgba(15,98,254,.18);
+    }
+
+    .branch-main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      position: relative;
+    }
+
+    .branch-main::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, #d9e3f2, #eef3f9);
+      transform: translateX(-50%);
+      opacity: .9;
+    }
+
+    .branch-col {
+      position: relative;
+      padding-top: 8px;
+    }
+
+    .branch-col::before {
+      content: "";
+      position: absolute;
+      top: 18px;
+      width: 22px;
+      height: 2px;
+      background: #d9e3f2;
+    }
+
+    .branch-col.left::before {
+      right: -11px;
+    }
+
+    .branch-col.right::before {
+      left: -11px;
+    }
+
+    .branch-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px;
+      box-shadow: 0 6px 14px rgba(16,24,40,.04);
+    }
+
+    .branch-title {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 0 12px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .branch-title.online { background: linear-gradient(135deg, #7ab800, #98c900); }
+    .branch-title.online-sub { background: linear-gradient(135deg, #2fb86c, #48c784); }
+    .branch-title.random { background: linear-gradient(135deg, #f7ae00, #f9c74f); color: #fff; }
+    .branch-title.custom { background: linear-gradient(135deg, #f7ae00, #f9c74f); color: #fff; }
+    .branch-title.offline { background: linear-gradient(135deg, #9ac300, #a7ce18); }
+
+    .branch-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .branch-item {
+      padding: 12px;
+      background: #f8fbff;
+      border: 1px solid #e7eef8;
+      border-radius: 14px;
+      font-size: 14px;
+      color: #314152;
+    }
+
+    .branch-subgrid {
+      display: grid;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .branch-note {
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: 14px;
+      background: #fff8e8;
+      border: 1px solid #ffe1a6;
+      color: #5f4a18;
+      font-size: 14px;
+    }
+
+    .flow-item {
+      position: relative;
+      padding: 14px 14px 14px 46px;
       border-radius: 18px;
       background: #fff;
       border: 1px solid var(--line);
     }
 
-    .faq-item + .faq-item {
-      margin-top: 10px;
-    }
-
-    .faq-q {
-      font-weight: 800;
-      margin-bottom: 6px;
-      font-size: 15px;
-    }
-
-    .faq-link{
-      color:#0f62fe;
-      font-weight:700;
-      text-decoration:none;
-      border-bottom:1px dashed rgba(15,98,254,.45);
-    }
-
-    .faq-link:active{
-      opacity:.72;
-    }
-
-    .btn {
-      display: inline-flex;
+    .flow-item::before {
+      content: attr(data-step);
+      position: absolute;
+      left: 14px;
+      top: 14px;
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 44px;
-      padding: 0 16px;
-      border-radius: 14px;
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 800;
-      transition: transform .16s ease, box-shadow .16s ease;
     }
 
-    .btn:active { transform: scale(.98); }
+    .flow-arrow {
+      text-align: center;
+      color: #9aa4b2;
+      font-weight: 700;
+      margin: -2px 0;
+    }
 
-    .btn-primary {
+    .list {
+      padding-left: 18px;
+      margin: 8px 0 0;
+    }
+
+    .list li { margin-bottom: 8px; }
+
+    .stat-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      flex: 1 1 160px;
       background: #fff;
-      color: #0f62fe;
-      box-shadow: 0 8px 20px rgba(0,0,0,.12);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px;
     }
 
-    .btn-secondary {
-      background: #eef4ff;
-      color: var(--primary);
-      border: 1px solid #d7e5ff;
+    .stat strong {
+      display: block;
+      font-size: 24px;
+      line-height: 1.1;
+      margin-bottom: 4px;
     }
 
-    .hero-actions,
     .cta-row {
       display: flex;
-      flex-wrap: wrap;
       gap: 10px;
-      margin-top: 16px;
+      flex-wrap: wrap;
+      margin-top: 14px;
     }
 
     .cta-chip {
@@ -515,102 +607,76 @@
       font-weight: 800;
     }
 
-    .muted {
+    .faq-item {
+      padding: 14px;
+      border-radius: 18px;
+      background: #fff;
+      border: 1px solid var(--line);
+    }
+
+    .faq-item + .faq-item { margin-top: 10px; }
+    #faq-first-batch { scroll-margin-top: 120px; }
+
+    .faq-q {
+      font-weight: 800;
+      margin-bottom: 4px;
+      font-size: 15px;
+    }
+
+    .footer {
+      margin-top: 18px;
+      padding: 22px 18px;
+      border-radius: 26px;
+      background: linear-gradient(180deg, #ffffff, #f8fbff);
+      border: 1px solid rgba(255,255,255,.9);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .footer h2 {
+      margin: 0 0 8px;
+      font-size: 24px;
+    }
+
+    .footer p {
+      margin: 0;
       color: var(--sub);
-      font-size: 13px;
+      font-size: 14px;
     }
 
-    .footer-card {
-      text-align: center;
-    }
-
-    .lightbox {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,.78);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      z-index: 999;
-    }
-
-    .lightbox-tip {
-      position: absolute;
-      top: 18px;
-      left: 0;
-      right: 0;
-      text-align: center;
-      color: rgba(255,255,255,.78);
-      font-size: 13px;
-      letter-spacing: .2px;
-      pointer-events: none;
-    }
-
-    .lightbox-stage {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .lightbox img {
-      max-width: 100%;
-      max-height: 90vh;
-      border-radius: 14px;
-      box-shadow: 0 20px 50px rgba(0,0,0,.35);
-    }
+    .muted { color: var(--sub); font-size: 13px; }
 
     @media (max-width: 720px) {
-      .hero h1 { font-size: 27px; }
-      .nav {
-        grid-template-columns: repeat(5, minmax(88px, 1fr));
-        overflow-x: auto;
-      }
       .nav a {
         min-height: 48px;
-        font-size: 13px;
-        padding: 0 8px;
+        font-size: 14px;
+        padding: 0 4px;
       }
-      .grid.two,
-      .grid.three,
-      .summary-grid,
-      .flow-branches,
       .shot-grid,
-      .shot-grid.two {
-        grid-template-columns: 1fr;
-      }
-      .section-head {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+      .shot-grid.two { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 27px; }
+      .grid.two, .grid.three, .branch-main { grid-template-columns: 1fr; }
+      .section-head { align-items: flex-start; flex-direction: column; }
+      .branch-main::before { display: none; }
+      .branch-col::before { display: none; }
+      #faq-first-batch { scroll-margin-top: 108px; }
     }
   </style>
 </head>
 <body>
   <div class="shell">
     <section class="hero">
-      <div class="hero-top">车牌100 · 新车选号攻略</div>
-      <h1>120 次选号机会，怎么用更划算？</h1>
-      <p>先用 12123，再去车管所；先做自编，再做随机。把规则看懂后，选号会更有把握，也更不容易浪费机会。</p>
-
+      <h1>车牌100选号攻略</h1>
+      <p>教你用 120 次选号机会，更高概率选到心仪车牌。</p>
       <div class="hero-tags">
-        <span class="tag">12123 自编 20 次</span>
-        <span class="tag">12123 随机 50 选 1</span>
+        <span class="tag">自编 20 次</span>
+        <span class="tag">随机 50 选 1</span>
         <span class="tag">车管所 50 选 1</span>
-      </div>
-
-      <div class="hero-note">
-        核心建议：<strong>先看号段公示 → 先自编 → 再随机 → 不满意再去车管所</strong>
       </div>
     </section>
 
     <div class="nav-wrap">
       <nav class="nav">
-        <a href="#summary">快速结论</a>
         <a href="#flow">选号方式</a>
         <a href="#steps">选号流程</a>
         <a href="#strategy">选号攻略</a>
@@ -618,77 +684,48 @@
       </nav>
     </div>
 
-    <section class="section" id="summary">
-      <div class="section-head">
-        <div class="section-title-wrap">
-          <h2>快速结论</h2>
-          <p>不想先看细节，先记住这三点就够了。</p>
-        </div>
-        <span class="badge">先看这个</span>
-      </div>
-      <div class="section-body">
-        <div class="summary-grid">
-          <div class="summary-card">
-            <strong>先 12123</strong>
-            <p>先把线上机会尽量用足，没满意号码再去车管所继续看一轮新的号码池。</p>
-          </div>
-          <div class="summary-card">
-            <strong>先自编</strong>
-            <p>自编要放在随机前面。随机一旦开始，通常会进入倒计时，节奏会变被动。</p>
-          </div>
-          <div class="summary-card">
-            <strong>先看号段</strong>
-            <p>准备自编前，先看号段公示，不是所有新投放号段都能立刻参与自编。</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="section" id="flow">
       <div class="section-head">
         <div class="section-title-wrap">
           <h2>一图看懂选号方式</h2>
-          <p>先搞清楚入口和机会分配，再决定怎么选。</p>
         </div>
-        <span class="badge">120 次机会</span>
       </div>
       <div class="section-body">
-        <div class="flow-map">
-          <div class="flow-root">选号</div>
+        <div class="mini-card" style="padding:12px;">
+          <svg viewBox="0 0 360 340" width="100%" role="img" aria-label="选号方式图" style="display:block; width:100%; height:auto;">
+            <defs>
+              <filter id="s" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="rgba(15,98,254,.14)"/>
+              </filter>
+            </defs>
 
-          <div class="flow-branches">
-            <div class="branch-card">
-              <span class="branch-badge green">12123 选号</span>
-              <div class="branch-list">
-                <div class="branch-item">
-                  <strong>自编 20 次</strong><br>
-                  先准备号码，再逐个尝试。更适合优先冲自己喜欢的组合。
-                </div>
-                <div class="branch-item">
-                  <strong>随机 50 选 1</strong><br>
-                  更像补充机会。进入后通常会有倒计时，所以建议放在自编之后。
-                </div>
-              </div>
-            </div>
+            <rect x="118" y="16" rx="16" ry="16" width="124" height="54" fill="#4c8dff" stroke="#ffffff" stroke-width="5" filter="url(#s)"/>
+            <text x="180" y="50" text-anchor="middle" font-size="24" font-weight="800" fill="#ffffff">选号</text>
 
-            <div class="branch-card">
-              <span class="branch-badge orange">车管所选号</span>
-              <div class="branch-list">
-                <div class="branch-item">
-                  <strong>线下 50 选 1</strong><br>
-                  如果 12123 没有满意号码，再去现场继续看另一轮号码池。
-                </div>
-                <div class="branch-item">
-                  <strong>注意翻页</strong><br>
-                  有些车管所是 1 页 50 个，有些是 2 页共 50 个，每页 25 个。
-                </div>
-              </div>
-            </div>
-          </div>
+            <path d="M180 70 L180 100" stroke="#4b5563" stroke-width="4" fill="none"/>
+            <path d="M80 100 L280 100" stroke="#4b5563" stroke-width="4" fill="none"/>
 
-          <div class="hint-box">
-            <strong>推荐顺序：</strong>先把 12123 的机会尽量用足；在 12123 内部则是<strong>先自编，再随机</strong>。
-          </div>
+            <path d="M80 100 L80 130" stroke="#4b5563" stroke-width="4" fill="none"/>
+            <path d="M280 100 L280 130" stroke="#4b5563" stroke-width="4" fill="none"/>
+
+            <rect x="20" y="130" rx="14" ry="14" width="120" height="54" fill="#95c11f" stroke="#ffffff" stroke-width="5" filter="url(#s)"/>
+            <text x="80" y="164" text-anchor="middle" font-size="20" font-weight="800" fill="#ffffff">12123选号</text>
+
+            <rect x="220" y="130" rx="14" ry="14" width="120" height="54" fill="#95c11f" stroke="#ffffff" stroke-width="5" filter="url(#s)"/>
+            <text x="280" y="162" text-anchor="middle" font-size="18" font-weight="800" fill="#ffffff">车管所50选1</text>
+
+            <path d="M80 184 L80 210" stroke="#4b5563" stroke-width="4" fill="none"/>
+            <path d="M20 210 L140 210" stroke="#4b5563" stroke-width="4" fill="none"/>
+
+            <path d="M20 210 L20 240" stroke="#4b5563" stroke-width="4" fill="none"/>
+            <path d="M140 210 L140 240" stroke="#4b5563" stroke-width="4" fill="none"/>
+
+            <rect x="0" y="246" rx="10" ry="10" width="80" height="32" fill="#f7b000" stroke="#ffffff" stroke-width="3" filter="url(#s)"/>
+            <text x="40" y="266" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">随机50选1</text>
+
+            <rect x="100" y="246" rx="10" ry="10" width="80" height="32" fill="#f7b000" stroke="#ffffff" stroke-width="3" filter="url(#s)"/>
+            <text x="140" y="266" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">自编20次</text>
+          </svg>
         </div>
       </div>
     </section>
@@ -697,14 +734,13 @@
       <div class="section-head">
         <div class="section-title-wrap">
           <h2>选号流程</h2>
-          <p>如果你想先看官方操作流程，可以参考交警公众号的选号指南。</p>
         </div>
       </div>
       <div class="section-body">
         <div class="mini-card" style="text-align:center;">
-          <p style="margin-bottom:10px;">具体操作流程可参考南京交警公众号发布的选号指南：</p>
+          <p style="margin-bottom:10px;">具体选号流程可直接参考南京交警公众号发布的选号指南：</p>
           <a class="btn btn-primary" href="https://mp.weixin.qq.com/s?__biz=MjM5NjAxOTE4OQ==&mid=2652195395&idx=3&sn=3f75bf83669a5d604e0c159706a48720&chksm=bc0bfa3535260f3c963255dae3e4b42b8156747dc9086791372cd339074543ff64e31d37d801&scene=27" target="_blank">查看南京交警选号指南</a>
-          <p class="muted" style="margin-top:10px;">本页更偏向帮你理解选号逻辑和机会如何分配。不同地区细节可能略有差异，请以当地规则为准。</p>
+          <p class="muted" style="margin-top:10px;">本页主要帮助你理解选号方式与选号攻略。</p>
         </div>
       </div>
     </section>
@@ -713,135 +749,68 @@
       <div class="section-head">
         <div class="section-title-wrap">
           <h2>选号攻略</h2>
-          <p>真正影响结果的，不只是次数，而是顺序和对规则的理解。</p>
         </div>
       </div>
-
       <div class="section-body">
         <div class="strategy-stack">
           <div class="mini-card strategy-card">
-            <h3>💡 核心策略：先 12123，再车管所；先自编，再随机</h3>
-            <p class="explain-text">
-              先把线上机会用足，再去线下；而在线上流程里，自编一定要放在随机前面。这样既能优先尝试自己更喜欢的号码，也不会被随机倒计时打乱节奏。
-            </p>
+            <h3>💡核心选号策略：先 12123 → 再车管所，先自编 → 再随机</h3>
           </div>
 
           <div class="mini-card strategy-card">
-            <div class="step-title">
-              <span class="step-num">1</span>
-              <h3 style="margin:0;">先确认哪些号段能用于自编</h3>
-            </div>
-
+            <h3>STEP 1：准备 20 个自编号码</h3>
             <p class="explain-text">
-              在 12123 自编前，先进入 <strong>新车选号</strong>，选择所在地区后，点击右上角 <strong>号段公示</strong>，查看当前已投放的号段信息。确认号段范围后，再根据可用于自编的号段准备号码。
+              在 12123 自编前，先进入 12123 APP，打开 <strong>车牌选号</strong>，选择所在地区，点击右上角 <strong>号段公示</strong> 查看本期可选号段。确认号段范围后，再根据号段范围准备 20 个自编号码。建议把这 20 个号码按照自己的满意度从高到低排序，因为只要其中有一个符合条件的预选号，预选号就会确定下来。
             </p>
 
             <div class="warn-box">
-              <strong>选号规则要点：</strong><br>
-              <a href="#faq-first-batch" class="faq-link">每种号牌种类的首次投放号段</a>，
-              自投放时间起，同时提供<strong>自编选号</strong>和<strong>随机选号</strong>。<br><br>
-              之后新投放的号段，自投放时间起 <strong>7 日内仅提供随机选号</strong>；超过 7 日后，由系统随机投放到<strong>自编选号池</strong>，此时才同时提供<strong>自编选号</strong>和<strong>随机选号</strong>。
-            </div>
-
-            <div class="good-box">
-              <strong>实用建议：</strong><br>
-              查看号段公示时，不要只盯着刚投放的新号段。因为很多新投放号段在前 7 天只能参与随机选号，暂时不能用于自编。<br><br>
-              如果你是为了准备自编号码，建议重点关注：<strong>首次投放即可自编的号段</strong>，以及<strong>已投放超过 7 天、可能进入自编选号池的号段</strong>。
+              <strong style="color:#d48806;">自编号段提醒：</strong><br>
+              自编选号可使用的号段包括：
+              <strong><a href="#faq-first-batch" class="faq-link">首次投放号段</a></strong>
+              和 <strong>投放超过 7 天的非首次投放号段</strong>。<br><br>
+              后续新投放的号段通常在 <strong>前 7 天只提供随机选号</strong>，超过 7 天后才可能进入 <strong>自编选号池</strong>。
             </div>
 
             <div class="shot-grid">
               <div class="shot-card">
                 <p class="caption">① 进入新车选号</p>
-                <div class="img-wrap">
-                  <img src="assets/images/step1-entry.png" alt="12123 首页进入新车选号" class="img-preview">
-                </div>
+                <div class="img-placeholder"><img src="assets/images/step1-entry.png" alt="12123 首页进入新车选号" class="img-preview"></div>
               </div>
               <div class="shot-card">
                 <p class="caption">② 选择地区并查看号段公示</p>
-                <div class="img-wrap">
-                  <img src="assets/images/step1-city-range.png" alt="选择城市并查看号段公示" class="img-preview">
-                </div>
+                <div class="img-placeholder"><img src="assets/images/step1-city-range.png" alt="选择城市并查看号段公示" class="img-preview"></div>
               </div>
               <div class="shot-card">
                 <p class="caption">③ 查看号段范围</p>
-                <div class="img-wrap">
-                  <img src="assets/images/step1-range-list.png" alt="号段公示查看页面" class="img-preview">
-                </div>
+                <div class="img-placeholder"><img src="assets/images/step1-range-list.png" alt="号段公示查看页面" class="img-preview"></div>
               </div>
             </div>
           </div>
 
           <div class="mini-card strategy-card">
-            <div class="step-title">
-              <span class="step-num">2</span>
-              <h3 style="margin:0;">开始选号：一定先自编，再随机</h3>
-            </div>
-
-            <div class="danger-box">
-              <strong style="color:#d93025;">注意：一定要先点自编，再开始随机选号。</strong><br>
-              <span style="color:#7c5d58;">
-                随机选号一旦开始，通常就会进入倒计时。如果先随机，后面留给自编尝试的时间会很紧张，容易白白浪费掉更有价值的自编机会。
-              </span>
-            </div>
-
-            <p class="explain-text" style="margin-top:12px;">
-              自编的价值在于你可以优先尝试自己最想要的号码组合；随机更像是兜底补充，所以顺序上一定是<strong>先做主动选择，再看系统随机结果</strong>。
-            </p>
+            <h3>STEP 2：开始选号（一定先自编）</h3>
+            <div class="warn-box"><strong style="color:#d93025;">注意：一定要先点自编，再开始随机选号。</strong><br><span style="color:#9aa4b2;">随机选号一旦开始就会倒计时，如果随机选号结束时没有确定好号码，本次机会就会失效，这样留给自编尝试的时间就会非常短。因此这一步的顺序非常重要。</span></div>
 
             <div class="shot-grid two">
               <div class="shot-card">
                 <p class="caption">① 先进入自编选号</p>
-                <div class="img-wrap">
-                  <img src="assets/images/step2-custom.png" alt="自编选号页面" class="img-preview">
-                </div>
+                <div class="img-placeholder"><img src="assets/images/step2-custom.png" alt="自编选号页面" class="img-preview"></div>
               </div>
               <div class="shot-card">
                 <p class="caption">② 再进入随机选号</p>
-                <div class="img-wrap">
-                  <img src="assets/images/step2-random.jpg" alt="随机选号页面" class="img-preview">
-                </div>
+                <div class="img-placeholder"><img src="assets/images/step2-random.jpg" alt="随机选号页面" class="img-preview"></div>
               </div>
             </div>
           </div>
 
           <div class="mini-card strategy-card">
-            <div class="step-title">
-              <span class="step-num">3</span>
-              <h3 style="margin:0;">如果线上没有满意号码，再去车管所</h3>
-            </div>
-
-            <p class="explain-text">
-              如果在 12123 完成自编和随机后，还是没有心仪号码，可以继续去车管所现场 50 选 1。线下通常是一次性给出全部号码，但不同车管所展示方式不同：有些是 <strong>1 页 50 个</strong>，有些是 <strong>2 页共 50 个、每页 25 个</strong>。
-            </p>
-
-            <div class="hint-box">
-              <strong>注意：</strong>如果当前页面只看到 25 个号码，记得翻页把后面的号码也看完，不要只看第一页就直接选定。
-            </div>
-
+            <h3>STEP 3：车管所选号</h3>
+            <p class="explain-text">如果在 12123 上完成自编和随机后仍然没有心仪号码，可以继续去车管所现场 50 选 1。车管所选号通常是一次性放出全部号码，但不同车管所的展示方式可能不同：有些是 <strong>1 页 50 个</strong>，有些是 <strong>2 页共 50 个，每页 25 个</strong>。</p>
+            <p class="explain-text">如果你看到当前页面只有 25 个号码，记得切换到下一页继续查看，不要只看第一页就直接选号。线下选号一般没有太多复杂技巧，核心就是把 50 个号码都看一遍，再从中直接选择最满意的号码。</p>
             <div class="shot-grid two">
               <div class="shot-card" style="grid-column: 1 / -1;">
                 <p class="caption">车管所选号页面</p>
-                <div class="img-wrap">
-                  <img src="assets/images/step3-office.jpg" alt="车管所选号页面" class="img-preview">
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="mini-card strategy-card">
-            <h3>📌 最终建议</h3>
-            <div class="grid two">
-              <div class="mini-card" style="padding:14px;">
-                <h3 style="font-size:16px;">适合多数人的顺序</h3>
-                <p class="explain-text">
-                  先看号段公示 → 准备自编思路 → 先自编 → 再随机 → 不满意再去车管所。
-                </p>
-              </div>
-              <div class="mini-card" style="padding:14px;">
-                <h3 style="font-size:16px;">最容易忽略的点</h3>
-                <p class="explain-text">
-                  不是所有新投放号段都能立刻自编。很多后续新投放号段前 7 天只能随机，超过 7 天后才可能进入自编池。
-                </p>
+                <div class="img-placeholder"><img src="assets/images/step3-office.jpg" alt="车管所选号页面" class="img-preview"></div>
               </div>
             </div>
           </div>
@@ -853,59 +822,38 @@
       <div class="section-head">
         <div class="section-title-wrap">
           <h2>常见问题</h2>
-          <p>把这些关键点搞清楚，选号时会更稳。</p>
         </div>
       </div>
       <div class="section-body">
         <div class="faq-item">
           <div class="faq-q">Q：为什么建议先在 12123 选号？</div>
-          <div class="plain">
-            因为 12123 可以先完成一整轮机会：<strong>20 次自编 + 50 选 1 随机</strong>，而且线上更方便。通常建议先把线上机会尽量用足，如果仍然没有满意号码，再去车管所进行新的 50 选 1。
-          </div>
+          <div class="plain">因为 12123 一共有 70 次选号机会：20 次自编 + 50 个随机号码，而且线上操作更方便，不需要去现场。因此一般建议先把 12123 的机会用足，如果仍然没有心仪号码，再去车管所进行 50 选 1。</div>
         </div>
 
         <div class="faq-item" id="faq-first-batch">
-          <div class="faq-q">Q：什么是“每种号牌种类的首次投放号段”？</div>
+          <div class="faq-q">Q：什么是首次投放号段？</div>
           <div class="plain">
-            可以理解为：某一种车牌类型第一次投放的新号段。这里的“号牌种类”通常是分开计算的，比如<strong>小型汽车号牌</strong>和<strong>新能源小型汽车号牌</strong>是不同类型。<br><br>
-            当某一类车牌<strong>第一次投放新的号段</strong>时，从投放当天开始，会<strong>同时提供自编选号和随机选号</strong>。而之后再投放的新号段，在<strong>投放后的 7 天内通常只提供随机选号</strong>，超过 7 天后才可能进入<strong>自编选号池</strong>。
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q">Q：是不是可以简单理解成跟第一个字母有关？</div>
-          <div class="plain">
-            可以这样粗略理解，但更准确地说，是跟<strong>号段</strong>有关，而不只是单独一个字母。比如 K****、L**** 这类前缀段，通常就是按号段分批投放，所以很多人会习惯说“看字母段”，但本质上看的是<strong>号段投放</strong>。
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q">Q：为什么自编一定要放在随机前面？</div>
-          <div class="plain">
-            因为随机选号开始后往往会进入倒计时，时间压力会明显变大。如果先随机，后面再回头自编，通常就没有足够时间慢慢尝试自己准备好的号码了，所以更合理的顺序是：<strong>先自编，再随机</strong>。
+            这里的“号牌种类”可以简单理解为不同类型的车牌，比如<strong>小型汽车号牌</strong>和<strong>新能源小型汽车号牌</strong>，它们是分别计算的。<br><br>
+            当某一种号牌种类<strong>第一次投放某个号段</strong>时，这个号段就属于<strong>首次投放号段</strong>，通常会同时提供<strong>自编选号</strong>和<strong>随机选号</strong>。<br><br>
+            例如：如果某城市的小型汽车号牌第一次投放 <strong>K**** 号段</strong>，那么 K**** 就属于该号牌种类的首次投放号段，可以直接参与自编选号。之后再投放的新号段，通常会先进入随机选号，超过 7 天后才可能进入自编选号池。
           </div>
         </div>
 
         <div class="faq-item">
           <div class="faq-q">Q：如果在 12123 预选号之后不去上牌会怎样？</div>
-          <div class="plain">
-            <span style="color:#d93025;font-weight:700;">重要提示：</span>
-            如果在 12123 成功预选号牌后，没有在规定时间内到车管所办理上牌，所选号牌会被取消，同时可能会被列入限制名单，<span style="color:#d93025;font-weight:700;">2 年内不能再使用互联网选号</span>，只能去车管所现场选号。所以在使用这套策略前，请先确认自己确实准备办理上牌。
-          </div>
+          <div class="plain"><span style="color:#d93025;font-weight:700;">重要提示：</span>如果在 12123 成功预选号牌后，没有在规定时间内到车管所办理上牌，所选号牌会被取消，同时会被列入黑名单，<span style="color:#d93025;font-weight:700;">2 年内不能再使用互联网选号</span>，只能到车管所现场选号。因此在使用 120 次选号策略前，请确保自己确实有上牌计划。</div>
         </div>
-
+        <div class="faq-item">
+          <div class="faq-q">Q：为什么自编要放在随机前面？</div>
+          <div class="plain">在 12123 的流程中，随机选号和自编是在同一个选号流程里的。一旦进入随机选号，倒计时就会立刻开始；如果先开启随机选号，就必须在倒计时结束前尽快选定号码，这时候几乎没有时间再慢慢尝试自编号码。所以更合理的顺序是：先准备好 20 个自编号码，先完成自编，再进入随机选号。</div>
+        </div>
         <div class="faq-item">
           <div class="faq-q">Q：如果线上没有满意号码怎么办？</div>
-          <div class="plain">
-            可以继续去车管所现场进行 50 选 1，相当于再进入另一组新的号码池。对于想尽量多看一轮号码的人来说，这是线上之外的重要补充。
-          </div>
+          <div class="plain">如果 12123 选号没有出现心仪号码，还可以去车管所进行一次新的 50 选 1，相当于进入另一组新的号码池。</div>
         </div>
-
         <div class="faq-item">
-          <div class="faq-q">Q：是不是这样就一定能选到好号？</div>
-          <div class="plain">
-            选号仍然有随机性，不是用了完整流程就一定能拿到理想号码。但通过<strong>先自编、再随机、再线下</strong>的顺序，你能尽量把可看的号码池扩大，从更多号码里挑出更满意的结果。
-          </div>
+          <div class="faq-q">Q：是不是一定能选到好号？</div>
+          <div class="plain">选号仍然存在一定随机性，但通过先自编、再随机、再线下的方式，可以尽可能扩大可选号码池，从更多号码里挑选出更满意的结果。</div>
         </div>
       </div>
     </section>
@@ -913,62 +861,52 @@
     <section class="section" id="start">
       <div class="section-head">
         <div class="section-title-wrap">
-          <h2>看懂流程，再用应用跑一遍</h2>
-          <p>先理解规则，再进应用模拟一遍，选号会更有把握。</p>
+          <h2>看懂流程，用应用过一遍选号</h2>
         </div>
       </div>
       <div class="section-body">
-        <div class="mini-card footer-card">
-          <p>应用内可模拟选号流程，并在自编时提供车牌评分，帮助你更高效筛选心仪号码。</p>
-          <div class="hero-actions" style="justify-content:center;">
+        <div class="mini-card" style="text-align:center;">
+          <p>应用内可模拟选号流程，并在自编时提供车牌评分，帮助你更高效地筛选心仪号码。</p>
+          <div class="hero-actions" style="justify-content:center; margin-top:16px;">
             <a class="btn btn-primary" href="chepai100://simulate12123">去模拟选号</a>
-            <a class="btn btn-secondary" href="chepai100://plateScore">去车牌评分</a>
-          </div>
-          <div class="cta-row">
-            <span class="cta-chip">先模拟流程再实战</span>
-            <span class="cta-chip">先看号段再做自编</span>
-            <span class="cta-chip">不满意再去线下</span>
+            <a class="btn btn-secondary" style="color:#0f62fe; background:#eef4ff; border-color:#d7e5ff;" href="chepai100://plateScore">去车牌评分</a>
           </div>
         </div>
       </div>
     </section>
-  </div>
 
+    <footer class="footer" style="display:none;"></footer>
+  </div>
   <div class="lightbox" id="lightbox">
-    <div class="lightbox-tip">点击任意位置关闭大图</div>
-    <div class="lightbox-stage">
-      <img id="lightboxImg" src="" alt="预览大图">
+    <div style="position:absolute;top:18px;left:0;right:0;text-align:center;color:#ffffffcc;font-size:13px;letter-spacing:.2px;pointer-events:none;">
+      点击任意位置关闭
+    </div>
+
+    <div class="lightbox-stage" id="lightboxStage">
+      <img id="lightboxImg" src="">
     </div>
   </div>
-
   <script>
-    const imgs = document.querySelectorAll('.img-preview');
-    const box = document.getElementById('lightbox');
-    const boxImg = document.getElementById('lightboxImg');
+  const imgs=document.querySelectorAll('.img-preview');
+  const box=document.getElementById('lightbox');
+  const boxImg=document.getElementById('lightboxImg');
+  function openLightbox(src){
+    box.style.display='flex';
+    boxImg.src=src;
+  }
 
-    function openLightbox(src) {
-      box.style.display = 'flex';
-      boxImg.src = src;
-      document.body.style.overflow = 'hidden';
-    }
+  function closeLightbox(){
+    box.style.display='none';
+    boxImg.src='';
+  }
 
-    function closeLightbox() {
-      box.style.display = 'none';
-      boxImg.src = '';
-      document.body.style.overflow = '';
-    }
+  imgs.forEach(i=>{
+    i.addEventListener('click',()=> openLightbox(i.src));
+  });
 
-    imgs.forEach(img => {
-      img.addEventListener('click', () => openLightbox(img.src));
-    });
-
-    box.addEventListener('click', closeLightbox);
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && box.style.display === 'flex') {
-        closeLightbox();
-      }
-    });
+  box.addEventListener('click',()=>{
+    closeLightbox();
+  });
   </script>
 </body>
 </html>
