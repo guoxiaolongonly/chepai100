@@ -5,74 +5,80 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>车牌100｜选号攻略</title>
   <style>
+    /* 全新升级的颜色和间距变量，更清爽透气 */
     :root {
-      --bg: #f5f7fb;
-      --card: rgba(255,255,255,.92);
-      --text: #18202a;
-      --sub: #5f6b7a;
-      --line: #e7ebf0;
-      --primary: #0f62fe;
-      --primary-soft: #eef4ff;
-      --warning: #fff7e8;
-      --warning-line: #ffd591;
-      --success: #f0fff4;
-      --success-line: #95de64;
-      --shadow: 0 12px 30px rgba(23,35,61,.08);
-      --radius: 22px;
+      --bg: #f4f7fa;
+      --card: #ffffff;
+      --text: #1d1d1f;
+      --sub: #86868b;
+      --line: rgba(0, 0, 0, 0.05);
+      --primary: #007aff;
+      --primary-soft: #eef6ff;
+      --warning: #fff9e6;
+      --warning-line: #ffcc00;
+      --success: #f2fff9;
+      --success-line: #34c759;
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+      --radius: 24px;
     }
 
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "PingFang SC", "Microsoft YaHei", sans-serif;
       color: var(--text);
-      background:
-        radial-gradient(circle at top right, rgba(15,98,254,.08), transparent 28%),
-        radial-gradient(circle at top left, rgba(32,201,151,.08), transparent 24%),
+      background: 
+        radial-gradient(circle at top right, rgba(0, 122, 255, 0.04), transparent 30%),
+        radial-gradient(circle at top left, rgba(52, 199, 89, 0.04), transparent 30%),
         var(--bg);
-      line-height: 1.62;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
     a { color: inherit; text-decoration: none; }
 
     .shell {
-      max-width: 860px;
+      max-width: 680px; /* 调整为更适合手机阅读的宽度 */
       margin: 0 auto;
-      padding: 18px 14px 48px;
+      padding: 16px 16px 60px;
     }
 
+    /* 顶部横幅优化：渐变更柔和，增加微阴影 */
     .hero {
-      padding: 22px 18px 18px;
-      background: linear-gradient(135deg, #0f62fe, #3b82f6 55%, #6ea8ff);
+      padding: 32px 24px 28px;
+      background: linear-gradient(135deg, #007aff, #0056d2);
       color: #fff;
-      border-radius: 28px;
-      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(0, 122, 255, 0.2);
       position: relative;
       overflow: hidden;
+      margin-bottom: 20px;
     }
 
     .hero::after {
       content: "";
       position: absolute;
-      right: -40px;
-      top: -40px;
-      width: 160px;
-      height: 160px;
+      right: -30px;
+      top: -30px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
-      background: rgba(255,255,255,.12);
+      background: rgba(255, 255, 255, 0.1);
+      pointer-events: none;
     }
 
     .hero h1 {
-      margin: 10px 0 6px;
-      font-size: 24px;
+      margin: 0 0 8px;
+      font-size: 26px;
       line-height: 1.25;
-      font-weight: 700;
+      font-weight: 800;
+      letter-spacing: -0.5px;
     }
 
     .hero p {
       margin: 0;
-      color: rgba(255,255,255,.92);
+      color: rgba(255, 255, 255, 0.9);
       font-size: 15px;
       max-width: 620px;
     }
@@ -81,15 +87,17 @@
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-top: 16px;
+      margin-top: 20px;
     }
 
     .tag {
-      padding: 8px 11px;
-      background: rgba(255,255,255,.14);
-      border: 1px solid rgba(255,255,255,.18);
-      border-radius: 999px;
+      padding: 6px 12px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 12px;
       font-size: 12px;
+      font-weight: 600;
     }
 
     .hero-actions {
@@ -101,83 +109,83 @@
       z-index: 1;
     }
 
+    /* 按钮优化：按压反馈更明显 */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 6px;
-      min-height: 44px;
-      padding: 0 16px;
-      border-radius: 14px;
-      font-size: 14px;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 16px;
+      font-size: 15px;
       font-weight: 700;
-      transition: transform .16s ease, box-shadow .16s ease;
+      transition: all 0.2s ease;
     }
 
-    .btn:active { transform: scale(.98); }
+    .btn:active { transform: scale(0.96); opacity: 0.9; }
     .btn-primary {
-      background: #fff;
-      color: #0f62fe;
-      box-shadow: 0 8px 20px rgba(0,0,0,.12);
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(0, 122, 255, 0.2);
     }
     .btn-secondary {
-      background: rgba(255,255,255,.12);
-      color: #fff;
-      border: 1px solid rgba(255,255,255,.24);
+      background: var(--primary-soft);
+      color: var(--primary);
+      border: none;
     }
 
+    /* 导航栏优化：毛玻璃效果 */
     .nav-wrap {
       position: sticky;
-      top: 0;
+      top: 12px;
       z-index: 20;
-      margin-top: 14px;
-      backdrop-filter: blur(12px);
+      margin-bottom: 20px;
     }
 
     .nav {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 0;
-      padding: 0;
-      background: rgba(255,255,255,.78);
-      border: 1px solid rgba(255,255,255,.75);
-      box-shadow: 0 8px 22px rgba(16,24,40,.06);
+      gap: 4px;
+      padding: 6px;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
       border-radius: 18px;
+      border: 0.5px solid rgba(0, 0, 0, 0.08);
       overflow: hidden;
     }
-    .nav::-webkit-scrollbar { display: none; }
 
     .nav a {
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 52px;
+      min-height: 44px;
       padding: 0 8px;
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 600;
-      color: #304156;
-      background: transparent;
-      border-radius: 0;
-      border-right: 1px solid #eef2f7;
+      color: #48484a;
+      border-radius: 12px;
       white-space: nowrap;
+      transition: background 0.2s;
     }
+    
+    .nav a:active { background: rgba(0, 0, 0, 0.05); color: var(--primary); }
 
-    .nav a:last-child {
-      border-right: 0;
-    }
-
+    /* 内容区块优化：去掉粗重边框，改为轻微阴影 */
     .section {
       scroll-margin-top: 90px;
-      margin-top: 18px;
+      margin-top: 20px;
       background: var(--card);
-      border: 1px solid rgba(255,255,255,.9);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow: hidden;
+      border: 0.5px solid var(--line);
     }
 
     .section-head {
-      padding: 20px 18px 12px;
+      padding: 24px 20px 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -186,8 +194,21 @@
 
     .section-title-wrap h2 {
       margin: 0;
-      font-size: 22px;
+      font-size: 20px;
       line-height: 1.22;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+    }
+
+    .section-title-wrap h2::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 18px;
+      background: var(--primary);
+      border-radius: 2px;
+      margin-right: 8px;
     }
 
     .section-title-wrap p {
@@ -196,68 +217,64 @@
       color: var(--sub);
     }
 
-    .badge {
-      flex: 0 0 auto;
-      padding: 7px 10px;
-      border-radius: 999px;
-      background: var(--primary-soft);
-      color: var(--primary);
-      font-size: 12px;
-      font-weight: 700;
-    }
-
     .section-body {
-      padding: 0 18px 18px;
+      padding: 0 20px 24px;
     }
 
-    .grid {
-      display: grid;
-      gap: 12px;
-    }
-
-    .grid.two { grid-template-columns: 1fr 1fr; }
-    .grid.three { grid-template-columns: repeat(3, 1fr); }
-
+    /* 内部卡片排版 */
     .mini-card {
-      padding: 14px;
+      padding: 16px;
       border-radius: 18px;
-      background: #fff;
-      border: 1px solid var(--line);
+      background: #f9f9fb;
+      border: 0.5px solid rgba(0, 0, 0, 0.03);
     }
 
     .mini-card h3 {
-      margin: 0 0 6px;
-      font-size: 16px;
+      margin: 0 0 10px;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
     }
 
     .strategy-stack {
       display: grid;
-      gap: 12px;
+      gap: 16px;
     }
 
     .strategy-card {
-      padding: 16px;
+      padding: 20px;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.01);
     }
 
     .strategy-card h3 {
       min-height: 24px;
       display: flex;
       align-items: center;
+      color: var(--primary);
     }
 
-    .strategy-card .img-placeholder {
+    /* 提示框美化 */
+    .warn-box {
+      background: var(--warning);
+      border-left: 4px solid var(--warning-line);
+      padding: 16px;
+      border-radius: 12px;
+      font-size: 13.5px;
       margin-top: 14px;
-      border-radius: 20px;
-      overflow: hidden;
-      background:#f6f9fe;
-      border:1px solid #e7eef8;
+      color: #5c4300;
+      line-height: 1.6;
     }
 
+    .warn-box strong { color: #b78100; }
+
+    /* 图片网格与占位优化 */
     .shot-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 12px;
-      margin-top: 14px;
+      margin-top: 16px;
     }
 
     .shot-grid.two {
@@ -265,401 +282,112 @@
     }
 
     .shot-card {
-      background: #f8fbff;
-      border: 1px solid #e7eef8;
-      border-radius: 18px;
-      padding: 10px;
+      background: transparent;
+      padding: 0;
+      border: none;
     }
 
     .shot-card .caption {
       margin: 0 0 8px;
-      font-size: 13px;
-      color: #5f6b7a;
+      font-size: 12px;
+      color: var(--sub);
       font-weight: 600;
-    }
-
-    .img-preview {
-      width:100%;
-      max-height:320px;
-      object-fit:cover;
-      display:block;
-      cursor:zoom-in;
-    }
-
-    .lightbox {
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,.75);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      padding:20px;
-      z-index:999;
-    }
-
-    .lightbox-stage {
-      width:100%;
-      height:100%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      overflow:auto;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .lightbox img{
-      max-width:100%;
-      max-height:90vh;
-      border-radius:14px;
-      box-shadow:0 20px 50px rgba(0,0,0,.35);
-      transform: scale(var(--zoom, 1));
-      transform-origin: center center;
-      transition: transform .18s ease;
-      cursor: zoom-in;
-    }
-
-    .lightbox img.zoomed {
-      cursor: move;
-    }
-
-    .mini-card p,
-    .mini-card li,
-    .plain,
-    .list li { font-size: 14px; color: #314152; }
-
-    .explain-text {
-      font-size: 13px !important;
-      color: #6f7c8c !important;
-      line-height: 1.7;
-    }
-
-    .mini-card p { margin: 0; }
-
-    .number-pill {
-      width: 28px;
-      height: 28px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 999px;
-      background: var(--primary-soft);
-      color: var(--primary);
-      font-weight: 800;
-      font-size: 13px;
-      margin-bottom: 10px;
+      text-align: center;
     }
 
     .img-placeholder {
-      margin-top: 14px;
-      min-height: 180px;
-      border: 1.5px dashed #c8d2df;
-      background: linear-gradient(180deg, #fbfcfe, #f4f7fb);
-      border-radius: 20px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #f0f2f5;
+      border: 0.5px solid rgba(0, 0, 0, 0.08);
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.02);
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      padding: 18px;
-      color: #6b7787;
+    }
+
+    .img-preview {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      cursor: zoom-in;
+    }
+
+    /* 灯光箱（看大图） */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(5px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 9999;
+    }
+
+    .lightbox-stage {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .lightbox img {
+      max-width: 100%;
+      max-height: 85vh;
+      border-radius: 16px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      cursor: zoom-out;
+    }
+
+    .plain, .explain-text {
       font-size: 14px;
+      color: #48484a;
+      line-height: 1.7;
     }
-
-    .hint-box, .warn-box, .good-box {
-      padding: 14px 14px;
-      border-radius: 18px;
-      font-size: 14px;
-      margin-top: 12px;
-    }
-
-    .hint-box {
-      background: #f7faff;
-      border: 1px solid #dbeafe;
-    }
-
-    .warn-box {
-      background: var(--warning);
-      border: 1px solid var(--warning-line);
-    }
-
-    .good-box {
-      background: var(--success);
-      border: 1px solid var(--success-line);
-    }
+    
+    .mini-card p { margin: 0; }
 
     .faq-link {
-      color: #0f62fe;
+      color: var(--primary);
       font-weight: 700;
-      border-bottom: 1px dashed rgba(15,98,254,.45);
+      text-decoration: underline;
       cursor: pointer;
     }
 
-    .faq-link:active { opacity: .72; }
-
-    .flow {
-      display: grid;
-      gap: 10px;
-      margin-top: 12px;
-    }
-
-    .branch-flow {
-      margin-top: 14px;
-      padding: 14px;
-      background: linear-gradient(180deg, #fbfdff, #f6f9fe);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-    }
-
-    .branch-root {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 18px;
-    }
-
-    .branch-root-card {
-      min-width: 132px;
-      padding: 14px 18px;
-      border-radius: 18px;
-      background: linear-gradient(135deg, #0f62fe, #4c8dff);
-      color: #fff;
-      text-align: center;
-      font-size: 22px;
-      font-weight: 800;
-      box-shadow: 0 12px 24px rgba(15,98,254,.18);
-    }
-
-    .branch-main {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      position: relative;
-    }
-
-    .branch-main::before {
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: linear-gradient(180deg, #d9e3f2, #eef3f9);
-      transform: translateX(-50%);
-      opacity: .9;
-    }
-
-    .branch-col {
-      position: relative;
-      padding-top: 8px;
-    }
-
-    .branch-col::before {
-      content: "";
-      position: absolute;
-      top: 18px;
-      width: 22px;
-      height: 2px;
-      background: #d9e3f2;
-    }
-
-    .branch-col.left::before {
-      right: -11px;
-    }
-
-    .branch-col.right::before {
-      left: -11px;
-    }
-
-    .branch-card {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 14px;
-      box-shadow: 0 6px 14px rgba(16,24,40,.04);
-    }
-
-    .branch-title {
-      display: inline-flex;
-      align-items: center;
-      min-height: 36px;
-      padding: 0 12px;
-      border-radius: 12px;
-      font-size: 16px;
-      font-weight: 800;
-      margin-bottom: 12px;
-      color: #fff;
-    }
-
-    .branch-title.online { background: linear-gradient(135deg, #7ab800, #98c900); }
-    .branch-title.online-sub { background: linear-gradient(135deg, #2fb86c, #48c784); }
-    .branch-title.random { background: linear-gradient(135deg, #f7ae00, #f9c74f); color: #fff; }
-    .branch-title.custom { background: linear-gradient(135deg, #f7ae00, #f9c74f); color: #fff; }
-    .branch-title.offline { background: linear-gradient(135deg, #9ac300, #a7ce18); }
-
-    .branch-list {
-      display: grid;
-      gap: 10px;
-    }
-
-    .branch-item {
-      padding: 12px;
-      background: #f8fbff;
-      border: 1px solid #e7eef8;
-      border-radius: 14px;
-      font-size: 14px;
-      color: #314152;
-    }
-
-    .branch-subgrid {
-      display: grid;
-      gap: 12px;
-      margin-top: 10px;
-    }
-
-    .branch-note {
-      margin-top: 12px;
-      padding: 12px;
-      border-radius: 14px;
-      background: #fff8e8;
-      border: 1px solid #ffe1a6;
-      color: #5f4a18;
-      font-size: 14px;
-    }
-
-    .flow-item {
-      position: relative;
-      padding: 14px 14px 14px 46px;
-      border-radius: 18px;
-      background: #fff;
-      border: 1px solid var(--line);
-    }
-
-    .flow-item::before {
-      content: attr(data-step);
-      position: absolute;
-      left: 14px;
-      top: 14px;
-      width: 22px;
-      height: 22px;
-      border-radius: 999px;
-      background: var(--primary-soft);
-      color: var(--primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-weight: 800;
-    }
-
-    .flow-arrow {
-      text-align: center;
-      color: #9aa4b2;
-      font-weight: 700;
-      margin: -2px 0;
-    }
-
-    .list {
-      padding-left: 18px;
-      margin: 8px 0 0;
-    }
-
-    .list li { margin-bottom: 8px; }
-
-    .stat-row {
-      display: flex;
-      gap: 10px;
-      margin-top: 12px;
-      flex-wrap: wrap;
-    }
-
-    .stat {
-      flex: 1 1 160px;
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 14px;
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 24px;
-      line-height: 1.1;
-      margin-bottom: 4px;
-    }
-
-    .cta-row {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 14px;
-    }
-
-    .cta-chip {
-      flex: 1 1 180px;
-      min-height: 48px;
-      background: #fff;
-      border: 1px solid #dce7ff;
-      color: var(--primary);
-      border-radius: 16px;
-      padding: 0 14px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      font-weight: 800;
-    }
-
+    /* FAQ 列表优化 */
     .faq-item {
-      padding: 14px;
-      border-radius: 18px;
-      background: #fff;
-      border: 1px solid var(--line);
+      padding: 16px;
+      border-radius: 16px;
+      background: #f9f9fb;
+      border: 0.5px solid rgba(0, 0, 0, 0.03);
     }
 
-    .faq-item + .faq-item { margin-top: 10px; }
-    #faq-first-batch { scroll-margin-top: 120px; }
+    .faq-item + .faq-item { margin-top: 12px; }
+    #faq-first-batch { scroll-margin-top: 100px; }
 
     .faq-q {
       font-weight: 800;
-      margin-bottom: 4px;
+      margin-bottom: 8px;
       font-size: 15px;
+      color: var(--text);
     }
 
-    .footer {
-      margin-top: 18px;
-      padding: 22px 18px;
-      border-radius: 26px;
-      background: linear-gradient(180deg, #ffffff, #f8fbff);
-      border: 1px solid rgba(255,255,255,.9);
-      box-shadow: var(--shadow);
-      text-align: center;
-    }
-
-    .footer h2 {
-      margin: 0 0 8px;
-      font-size: 24px;
-    }
-
-    .footer p {
-      margin: 0;
-      color: var(--sub);
-      font-size: 14px;
-    }
-
+    .footer { display: none; }
     .muted { color: var(--sub); font-size: 13px; }
 
+    /* 移动端适配 */
     @media (max-width: 720px) {
-      .nav a {
-        min-height: 48px;
-        font-size: 14px;
-        padding: 0 4px;
-      }
-      .shot-grid,
+      .shot-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
       .shot-grid.two { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 27px; }
-      .grid.two, .grid.three, .branch-main { grid-template-columns: 1fr; }
-      .section-head { align-items: flex-start; flex-direction: column; }
-      .branch-main::before { display: none; }
-      .branch-col::before { display: none; }
-      #faq-first-batch { scroll-margin-top: 108px; }
+      .hero h1 { font-size: 24px; }
+      .section-head { flex-direction: column; align-items: flex-start; }
+      .nav a { font-size: 13px; padding: 0 4px; min-height: 40px; }
     }
   </style>
 </head>
@@ -691,7 +419,7 @@
         </div>
       </div>
       <div class="section-body">
-        <div class="mini-card" style="padding:12px;">
+        <div class="mini-card" style="padding:16px;">
           <svg viewBox="0 0 360 340" width="100%" role="img" aria-label="选号方式图" style="display:block; width:100%; height:auto;">
             <defs>
               <filter id="s" x="-20%" y="-20%" width="140%" height="140%">
@@ -738,9 +466,9 @@
       </div>
       <div class="section-body">
         <div class="mini-card" style="text-align:center;">
-          <p style="margin-bottom:10px;">具体选号流程可直接参考南京交警公众号发布的选号指南：</p>
+          <p style="margin-bottom:14px; font-size:14px; color:#48484a;">具体选号流程可直接参考南京交警公众号发布的选号指南：</p>
           <a class="btn btn-primary" href="https://mp.weixin.qq.com/s?__biz=MjM5NjAxOTE4OQ==&mid=2652195395&idx=3&sn=3f75bf83669a5d604e0c159706a48720&chksm=bc0bfa3535260f3c963255dae3e4b42b8156747dc9086791372cd339074543ff64e31d37d801&scene=27" target="_blank">查看南京交警选号指南</a>
-          <p class="muted" style="margin-top:10px;">本页主要帮助你理解选号方式与选号攻略。</p>
+          <p class="muted" style="margin-top:14px;">本页主要帮助你理解选号方式与选号攻略。</p>
         </div>
       </div>
     </section>
@@ -753,8 +481,8 @@
       </div>
       <div class="section-body">
         <div class="strategy-stack">
-          <div class="mini-card strategy-card">
-            <h3>💡核心选号策略：先 12123 → 再车管所，先自编 → 再随机</h3>
+          <div class="mini-card strategy-card" style="background:#eef6ff; border-color:#d0e2ff;">
+            <h3 style="margin:0;">💡核心选号策略：先 12123 → 再车管所，先自编 → 再随机</h3>
           </div>
 
           <div class="mini-card strategy-card">
@@ -764,7 +492,7 @@
             </p>
 
             <div class="warn-box">
-              <strong style="color:#d48806;">自编号段提醒：</strong><br>
+              <strong>自编号段提醒：</strong><br>
               自编选号可使用的号段包括：
               <strong><a href="#faq-first-batch" class="faq-link">首次投放号段</a></strong>
               和 <strong>投放超过 7 天的非首次投放号段</strong>。<br><br>
@@ -789,7 +517,10 @@
 
           <div class="mini-card strategy-card">
             <h3>STEP 2：开始选号（一定先自编）</h3>
-            <div class="warn-box"><strong style="color:#d93025;">注意：一定要先点自编，再开始随机选号。</strong><br><span style="color:#9aa4b2;">随机选号一旦开始就会倒计时，如果随机选号结束时没有确定好号码，本次机会就会失效，这样留给自编尝试的时间就会非常短。因此这一步的顺序非常重要。</span></div>
+            <div class="warn-box" style="background:#fff1f0; border-left-color:#ff3b30;">
+              <strong style="color:#d93025;">注意：一定要先点自编，再开始随机选号。</strong><br>
+              <span style="color:#86868b; font-weight:normal;">随机选号一旦开始就会倒计时，如果随机选号结束时没有确定好号码，本次机会就会失效，这样留给自编尝试的时间就会非常短。因此这一步的顺序非常重要。</span>
+            </div>
 
             <div class="shot-grid two">
               <div class="shot-card">
@@ -865,11 +596,11 @@
         </div>
       </div>
       <div class="section-body">
-        <div class="mini-card" style="text-align:center;">
-          <p>应用内可模拟选号流程，并在自编时提供车牌评分，帮助你更高效地筛选心仪号码。</p>
-          <div class="hero-actions" style="justify-content:center; margin-top:16px;">
+        <div class="mini-card" style="text-align:center; padding: 24px 16px;">
+          <p style="margin-bottom:20px; color:#48484a; font-size:15px;">应用内可模拟选号流程，并在自编时提供车牌评分，帮助你更高效地筛选心仪号码。</p>
+          <div class="hero-actions" style="justify-content:center; gap:16px;">
             <a class="btn btn-primary" href="chepai100://simulate12123">去模拟选号</a>
-            <a class="btn btn-secondary" style="color:#0f62fe; background:#eef4ff; border-color:#d7e5ff;" href="chepai100://plateScore">去车牌评分</a>
+            <a class="btn btn-secondary" style="background:#eef4ff; border: 1px solid #d7e5ff;" href="chepai100://plateScore">去车牌评分</a>
           </div>
         </div>
       </div>
@@ -878,7 +609,7 @@
     <footer class="footer" style="display:none;"></footer>
   </div>
   <div class="lightbox" id="lightbox">
-    <div style="position:absolute;top:18px;left:0;right:0;text-align:center;color:#ffffffcc;font-size:13px;letter-spacing:.2px;pointer-events:none;">
+    <div style="position:absolute;top:24px;left:0;right:0;text-align:center;color:rgba(255,255,255,0.7);font-size:14px;letter-spacing:1px;pointer-events:none;">
       点击任意位置关闭
     </div>
 
