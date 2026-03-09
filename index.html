@@ -7,7 +7,7 @@
   <style>
     :root {
       --bg: #f4f7fb;
-      --card: rgba(255,255,255,.94);
+      --card: rgba(255,255,255,.95);
       --text: #18202a;
       --sub: #607081;
       --line: #e8edf3;
@@ -44,7 +44,7 @@
     .shell {
       max-width: 920px;
       margin: 0 auto;
-      padding: 18px 14px 54px;
+      padding: 18px 14px 56px;
     }
 
     .hero {
@@ -109,7 +109,7 @@
       margin: 0;
       font-size: 15px;
       color: rgba(255,255,255,.92);
-      max-width: 660px;
+      max-width: 700px;
     }
 
     .hero-tags {
@@ -138,7 +138,7 @@
       border-radius: 16px;
       background: rgba(255,255,255,.12);
       border: 1px solid rgba(255,255,255,.16);
-      color: rgba(255,255,255,.94);
+      color: rgba(255,255,255,.95);
       font-size: 14px;
     }
 
@@ -153,11 +153,11 @@
 
     .nav {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(5, minmax(0, 1fr));
       overflow: hidden;
       border-radius: 18px;
-      background: rgba(255,255,255,.80);
-      border: 1px solid rgba(255,255,255,.9);
+      background: rgba(255,255,255,.82);
+      border: 1px solid rgba(255,255,255,.95);
       box-shadow: 0 10px 24px rgba(16,24,40,.06);
     }
 
@@ -249,6 +249,26 @@
     }
 
     .mini-card p { margin: 0; }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .summary-card {
+      padding: 16px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, #ffffff, #f8fbff);
+      border: 1px solid #e5eefb;
+    }
+
+    .summary-card strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 6px;
+      color: var(--primary);
+    }
 
     .flow-map {
       display: grid;
@@ -345,7 +365,7 @@
     .explain-text {
       font-size: 14px !important;
       color: #566577 !important;
-      line-height: 1.8;
+      line-height: 1.82;
     }
 
     .hint-box,
@@ -433,6 +453,17 @@
       font-weight: 800;
       margin-bottom: 6px;
       font-size: 15px;
+    }
+
+    .faq-link{
+      color:#0f62fe;
+      font-weight:700;
+      text-decoration:none;
+      border-bottom:1px dashed rgba(15,98,254,.45);
+    }
+
+    .faq-link:active{
+      opacity:.72;
     }
 
     .btn {
@@ -535,13 +566,18 @@
 
     @media (max-width: 720px) {
       .hero h1 { font-size: 27px; }
+      .nav {
+        grid-template-columns: repeat(5, minmax(88px, 1fr));
+        overflow-x: auto;
+      }
       .nav a {
         min-height: 48px;
         font-size: 13px;
-        padding: 0 4px;
+        padding: 0 8px;
       }
       .grid.two,
       .grid.three,
+      .summary-grid,
       .flow-branches,
       .shot-grid,
       .shot-grid.two {
@@ -558,8 +594,8 @@
   <div class="shell">
     <section class="hero">
       <div class="hero-top">车牌100 · 新车选号攻略</div>
-      <h1>车牌100选号攻略</h1>
-      <p>教你更合理地用完 120 次选号机会：先用 12123，再去车管所；先做自编，再做随机，尽量把可选范围放大。</p>
+      <h1>120 次选号机会，怎么用更划算？</h1>
+      <p>先用 12123，再去车管所；先做自编，再做随机。把规则看懂后，选号会更有把握，也更不容易浪费机会。</p>
 
       <div class="hero-tags">
         <span class="tag">12123 自编 20 次</span>
@@ -568,12 +604,13 @@
       </div>
 
       <div class="hero-note">
-        核心思路：<strong>先自编 → 再随机 → 最后线下车管所</strong>。这样能把线上和线下的机会都尽量利用起来。
+        核心建议：<strong>先看号段公示 → 先自编 → 再随机 → 不满意再去车管所</strong>
       </div>
     </section>
 
     <div class="nav-wrap">
       <nav class="nav">
+        <a href="#summary">快速结论</a>
         <a href="#flow">选号方式</a>
         <a href="#steps">选号流程</a>
         <a href="#strategy">选号攻略</a>
@@ -581,11 +618,37 @@
       </nav>
     </div>
 
+    <section class="section" id="summary">
+      <div class="section-head">
+        <div class="section-title-wrap">
+          <h2>快速结论</h2>
+          <p>不想先看细节，先记住这三点就够了。</p>
+        </div>
+        <span class="badge">先看这个</span>
+      </div>
+      <div class="section-body">
+        <div class="summary-grid">
+          <div class="summary-card">
+            <strong>先 12123</strong>
+            <p>先把线上机会尽量用足，没满意号码再去车管所继续看一轮新的号码池。</p>
+          </div>
+          <div class="summary-card">
+            <strong>先自编</strong>
+            <p>自编要放在随机前面。随机一旦开始，通常会进入倒计时，节奏会变被动。</p>
+          </div>
+          <div class="summary-card">
+            <strong>先看号段</strong>
+            <p>准备自编前，先看号段公示，不是所有新投放号段都能立刻参与自编。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="flow">
       <div class="section-head">
         <div class="section-title-wrap">
           <h2>一图看懂选号方式</h2>
-          <p>先搞清楚选号入口，再决定机会怎么分配。</p>
+          <p>先搞清楚入口和机会分配，再决定怎么选。</p>
         </div>
         <span class="badge">120 次机会</span>
       </div>
@@ -599,11 +662,11 @@
               <div class="branch-list">
                 <div class="branch-item">
                   <strong>自编 20 次</strong><br>
-                  先准备号码，再逐个尝试；只要命中符合条件的号，预选号就会确定。
+                  先准备号码，再逐个尝试。更适合优先冲自己喜欢的组合。
                 </div>
                 <div class="branch-item">
                   <strong>随机 50 选 1</strong><br>
-                  随机池里看号，进入后通常会有倒计时，所以更适合放在自编之后。
+                  更像补充机会。进入后通常会有倒计时，所以建议放在自编之后。
                 </div>
               </div>
             </div>
@@ -613,18 +676,18 @@
               <div class="branch-list">
                 <div class="branch-item">
                   <strong>线下 50 选 1</strong><br>
-                  如果 12123 没有满意号码，再去现场继续看一轮新的号码池。
+                  如果 12123 没有满意号码，再去现场继续看另一轮号码池。
                 </div>
                 <div class="branch-item">
                   <strong>注意翻页</strong><br>
-                  不同车管所可能是 1 页 50 个，也可能是 2 页共 50 个，每页 25 个。
+                  有些车管所是 1 页 50 个，有些是 2 页共 50 个，每页 25 个。
                 </div>
               </div>
             </div>
           </div>
 
           <div class="hint-box">
-            <strong>推荐顺序：</strong>先把 12123 的机会尽量用足，再考虑车管所；在 12123 内部则是<strong>先自编，再随机</strong>。
+            <strong>推荐顺序：</strong>先把 12123 的机会尽量用足；在 12123 内部则是<strong>先自编，再随机</strong>。
           </div>
         </div>
       </div>
@@ -634,14 +697,14 @@
       <div class="section-head">
         <div class="section-title-wrap">
           <h2>选号流程</h2>
-          <p>如果你想先看官方操作流程，可以直接参考交警公众号的选号指南。</p>
+          <p>如果你想先看官方操作流程，可以参考交警公众号的选号指南。</p>
         </div>
       </div>
       <div class="section-body">
         <div class="mini-card" style="text-align:center;">
-          <p style="margin-bottom:10px;">具体选号流程可直接参考南京交警公众号发布的选号指南：</p>
+          <p style="margin-bottom:10px;">具体操作流程可参考南京交警公众号发布的选号指南：</p>
           <a class="btn btn-primary" href="https://mp.weixin.qq.com/s?__biz=MjM5NjAxOTE4OQ==&mid=2652195395&idx=3&sn=3f75bf83669a5d604e0c159706a48720&chksm=bc0bfa3535260f3c963255dae3e4b42b8156747dc9086791372cd339074543ff64e31d37d801&scene=27" target="_blank">查看南京交警选号指南</a>
-          <p class="muted" style="margin-top:10px;">本页更偏向帮助你理解“选号逻辑”和“机会怎么用更划算”。</p>
+          <p class="muted" style="margin-top:10px;">本页更偏向帮你理解选号逻辑和机会如何分配。不同地区细节可能略有差异，请以当地规则为准。</p>
         </div>
       </div>
     </section>
@@ -650,35 +713,40 @@
       <div class="section-head">
         <div class="section-title-wrap">
           <h2>选号攻略</h2>
-          <p>真正影响结果的，不只是选号次数，而是你的使用顺序。</p>
+          <p>真正影响结果的，不只是次数，而是顺序和对规则的理解。</p>
         </div>
       </div>
 
       <div class="section-body">
         <div class="strategy-stack">
           <div class="mini-card strategy-card">
-            <h3>💡核心策略：先 12123，再车管所；先自编，再随机</h3>
+            <h3>💡 核心策略：先 12123，再车管所；先自编，再随机</h3>
             <p class="explain-text">
-              先把线上机会用足，再去线下；而在线上流程里，自编一定要放在随机前面。这样你既能先尝试自己更喜欢的号码组合，也不会被随机倒计时打乱节奏。
+              先把线上机会用足，再去线下；而在线上流程里，自编一定要放在随机前面。这样既能优先尝试自己更喜欢的号码，也不会被随机倒计时打乱节奏。
             </p>
           </div>
 
           <div class="mini-card strategy-card">
             <div class="step-title">
               <span class="step-num">1</span>
-              <h3 style="margin:0;">准备 20 个自编号码</h3>
+              <h3 style="margin:0;">先确认哪些号段能用于自编</h3>
             </div>
 
             <p class="explain-text">
-              在 12123 自编前，先进入 <strong>新车选号</strong>，选择所在地区，再点右上角 <strong>号段公示</strong>，先看当前可选号段。确认号段范围后，再根据范围准备 20 个自编号码，并建议按满意度从高到低排好顺序。
+              在 12123 自编前，先进入 <strong>新车选号</strong>，选择所在地区后，点击右上角 <strong>号段公示</strong>，查看当前已投放的号段信息。确认号段范围后，再根据可用于自编的号段准备号码。
             </p>
 
             <div class="warn-box">
-              <strong>重点提醒：</strong>自编号码参考时，不要只看当天随机池的号码。<strong>随机池里的号通常需要大约 7 天后，才可能进入自编池。</strong>所以看号段公示时，建议重点参考<strong>7 天前对应批次</strong>的可选号段，再去准备自编号码，会更有针对性。
+              <strong>选号规则要点：</strong><br>
+              <a href="#faq-first-batch" class="faq-link">每种号牌种类的首次投放号段</a>，
+              自投放时间起，同时提供<strong>自编选号</strong>和<strong>随机选号</strong>。<br><br>
+              之后新投放的号段，自投放时间起 <strong>7 日内仅提供随机选号</strong>；超过 7 日后，由系统随机投放到<strong>自编选号池</strong>，此时才同时提供<strong>自编选号</strong>和<strong>随机选号</strong>。
             </div>
 
             <div class="good-box">
-              <strong>建议做法：</strong>先把想要的号码样式整理出来，再根据号段公示做筛选，最后留出 20 个优先级最高的号码，按顺序依次尝试。
+              <strong>实用建议：</strong><br>
+              查看号段公示时，不要只盯着刚投放的新号段。因为很多新投放号段在前 7 天只能参与随机选号，暂时不能用于自编。<br><br>
+              如果你是为了准备自编号码，建议重点关注：<strong>首次投放即可自编的号段</strong>，以及<strong>已投放超过 7 天、可能进入自编选号池的号段</strong>。
             </div>
 
             <div class="shot-grid">
@@ -712,12 +780,12 @@
             <div class="danger-box">
               <strong style="color:#d93025;">注意：一定要先点自编，再开始随机选号。</strong><br>
               <span style="color:#7c5d58;">
-                随机选号一旦开始，通常就会进入倒计时。如果随机阶段结束前没有定下来，你后面留给自编尝试的时间会非常紧张，容易白白浪费掉更重要的自编机会。
+                随机选号一旦开始，通常就会进入倒计时。如果先随机，后面留给自编尝试的时间会很紧张，容易白白浪费掉更有价值的自编机会。
               </span>
             </div>
 
             <p class="explain-text" style="margin-top:12px;">
-              自编的价值在于你可以优先冲自己最想要的号码组合；随机更像是兜底补充，所以顺序上一定是<strong>先做主动选择，再看系统随机结果</strong>。
+              自编的价值在于你可以优先尝试自己最想要的号码组合；随机更像是兜底补充，所以顺序上一定是<strong>先做主动选择，再看系统随机结果</strong>。
             </p>
 
             <div class="shot-grid two">
@@ -747,7 +815,7 @@
             </p>
 
             <div class="hint-box">
-              <strong>注意：</strong>如果你当前只看到 25 个号码，记得翻页把后面的号码也看完，不要只看第一页就直接定。
+              <strong>注意：</strong>如果当前页面只看到 25 个号码，记得翻页把后面的号码也看完，不要只看第一页就直接选定。
             </div>
 
             <div class="shot-grid two">
@@ -766,13 +834,13 @@
               <div class="mini-card" style="padding:14px;">
                 <h3 style="font-size:16px;">适合多数人的顺序</h3>
                 <p class="explain-text">
-                  先看号段公示 → 准备 20 个自编号 → 先自编 → 再随机 → 不满意再去车管所。
+                  先看号段公示 → 准备自编思路 → 先自编 → 再随机 → 不满意再去车管所。
                 </p>
               </div>
               <div class="mini-card" style="padding:14px;">
                 <h3 style="font-size:16px;">最容易忽略的点</h3>
                 <p class="explain-text">
-                  自编并不是盯着当天随机池看，而是要结合<strong>约 7 天前</strong>可能进入自编池的号段来准备。
+                  不是所有新投放号段都能立刻自编。很多后续新投放号段前 7 天只能随机，超过 7 天后才可能进入自编池。
                 </p>
               </div>
             </div>
@@ -785,28 +853,36 @@
       <div class="section-head">
         <div class="section-title-wrap">
           <h2>常见问题</h2>
-          <p>先把这些关键点搞清楚，选号时会更稳。</p>
+          <p>把这些关键点搞清楚，选号时会更稳。</p>
         </div>
       </div>
       <div class="section-body">
         <div class="faq-item">
           <div class="faq-q">Q：为什么建议先在 12123 选号？</div>
           <div class="plain">
-            因为 12123 一共有较完整的一轮机会：<strong>20 次自编 + 50 选 1 随机</strong>，而且线上操作更方便，不需要先跑现场。通常更建议先把线上机会尽量用足，如果仍然没有满意号码，再去车管所进行新的 50 选 1。
+            因为 12123 可以先完成一整轮机会：<strong>20 次自编 + 50 选 1 随机</strong>，而且线上更方便。通常建议先把线上机会尽量用足，如果仍然没有满意号码，再去车管所进行新的 50 选 1。
+          </div>
+        </div>
+
+        <div class="faq-item" id="faq-first-batch">
+          <div class="faq-q">Q：什么是“每种号牌种类的首次投放号段”？</div>
+          <div class="plain">
+            可以理解为：某一种车牌类型第一次投放的新号段。这里的“号牌种类”通常是分开计算的，比如<strong>小型汽车号牌</strong>和<strong>新能源小型汽车号牌</strong>是不同类型。<br><br>
+            当某一类车牌<strong>第一次投放新的号段</strong>时，从投放当天开始，会<strong>同时提供自编选号和随机选号</strong>。而之后再投放的新号段，在<strong>投放后的 7 天内通常只提供随机选号</strong>，超过 7 天后才可能进入<strong>自编选号池</strong>。
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Q：是不是可以简单理解成跟第一个字母有关？</div>
+          <div class="plain">
+            可以这样粗略理解，但更准确地说，是跟<strong>号段</strong>有关，而不只是单独一个字母。比如 K****、L**** 这类前缀段，通常就是按号段分批投放，所以很多人会习惯说“看字母段”，但本质上看的是<strong>号段投放</strong>。
           </div>
         </div>
 
         <div class="faq-item">
           <div class="faq-q">Q：为什么自编一定要放在随机前面？</div>
           <div class="plain">
-            因为随机选号开始后往往会进入倒计时，时间压力会明显变大。如果先随机，后面再回头自编，通常就没有足够时间慢慢试自己准备好的号码了，所以更合理的顺序是：<strong>先自编，再随机</strong>。
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q">Q：自编看号段时，为什么要特别留意 7 天前的号码？</div>
-          <div class="plain">
-            因为很多人容易直接拿当前随机池去推自编池，但这两者不是同步进入的。一般理解上，<strong>随机池里的号大约 7 天后才更可能进入自编池</strong>。所以如果你要为自编准备号码，更值得重点参考的是<strong>约 7 天前对应批次的号段</strong>。
+            因为随机选号开始后往往会进入倒计时，时间压力会明显变大。如果先随机，后面再回头自编，通常就没有足够时间慢慢尝试自己准备好的号码了，所以更合理的顺序是：<strong>先自编，再随机</strong>。
           </div>
         </div>
 
@@ -814,7 +890,7 @@
           <div class="faq-q">Q：如果在 12123 预选号之后不去上牌会怎样？</div>
           <div class="plain">
             <span style="color:#d93025;font-weight:700;">重要提示：</span>
-            如果在 12123 成功预选号牌后，没有在规定时间内到车管所办理上牌，所选号牌会被取消，同时可能会被列入限制名单，<span style="color:#d93025;font-weight:700;">2 年内不能再使用互联网选号</span>，只能去车管所现场选号。所以在使用这套选号策略前，请先确认自己确实准备办理上牌。
+            如果在 12123 成功预选号牌后，没有在规定时间内到车管所办理上牌，所选号牌会被取消，同时可能会被列入限制名单，<span style="color:#d93025;font-weight:700;">2 年内不能再使用互联网选号</span>，只能去车管所现场选号。所以在使用这套策略前，请先确认自己确实准备办理上牌。
           </div>
         </div>
 
@@ -850,8 +926,8 @@
           </div>
           <div class="cta-row">
             <span class="cta-chip">先模拟流程再实战</span>
-            <span class="cta-chip">先准备号码再进入自编</span>
-            <span class="cta-chip">随机不满意再去线下</span>
+            <span class="cta-chip">先看号段再做自编</span>
+            <span class="cta-chip">不满意再去线下</span>
           </div>
         </div>
       </div>
